@@ -3,8 +3,40 @@
     <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>This is a fancy wand</h1>
+        <h1>This is a fancy wand <br> (ctrl+shift+i or you're a rotten egg)</h1>
         <p>look at it go</p>
-        <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMO1CkO530Z2r9DHwQD8oAf1eSz9W0A4Z8Tx9x3NX1pg&s=10">
+        <button id = "button-thing" onclick="hoveredWand()" style="position:relative; width:200px;">
+        <img  id = "wand-image" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMO1CkO530Z2r9DHwQD8oAf1eSz9W0A4Z8Tx9x3NX1pg&s=10" style="width:200px;">
+        </button>
+        <script>
+        var textslide = 1;
+        function hoveredWand(){
+            
+            console.log("Oop -- you got me!")
+        }
+        const wandImage = document.getElementById("wand-image");
+        const button = document.getElementById("button-thing");
+
+        function wandSkeddadle(){
+            console.log("I'm too quick!")
+            wandImage.style.left = `${Math.floor(Math.random() * 200)}px`;
+            button.style.top = wandImage.style.top;
+            wandImage.style.top = `${Math.floor(Math.random() * 200)}px`; 
+            button.style.left = wandImage.style.left;
+
+            wandImage.style.width = `${200 - 10*textslide}px`;
+            button.style.width = wandImage.style.width;
+            
+
+            
+        }
+
+        
+        button.addEventListener("mouseenter", ()=>{wandSkeddadle();textslide +=1; })
+
+
+
+    </script>
+
     </body>
 </html>
